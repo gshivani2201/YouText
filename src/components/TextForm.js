@@ -12,14 +12,22 @@ export default function TextForm(props) {
         setText(newText)
     }
 
-    // const handleOnCopy = (event) => {
-    //      console.log("copied!")
-    //      text.navigator.clipboard.writeText(myBox.value)
-    // }
-
     const handleOnChange = (event) => {
         //console.log("ON CHANGE")
         setText(event.target.value)//it was working fine even if I not pass anything in the brackets of arrow function & setText. WEIRD!
+    }
+
+    const handleOnCopy = () => {
+        console.log("copied!")
+        var text = document.getElementById("myBox");
+        text.select();
+        // text.setSelectionRange(0,9999);
+        navigator.clipboard.writeText(text.value);
+    }
+
+    const handleExtraSpaces = () => {
+        let newText = text.split(/[ ]+/);
+        setText(newText.join(" "))
     }
 
     const [text, setText] = useState('')
@@ -34,7 +42,8 @@ export default function TextForm(props) {
             </div>
             <button className="btn btn-primary mx-1" onClick={handleUpClick}>Convert to uppercase</button>
             <button className="btn btn-primary mx-1" onClick={handleLowClick}>Convert to LowerCase</button>
-            {/* <button className="btn btn-primary mx-1" onClick={handleOnCopy}>Copy Text</button> */}
+            <button className="btn btn-primary mx-1" onClick={handleOnCopy}>Copy Text</button>
+            <button className="btn btn-primary mx-1" onClick={handleExtraSpaces}>Remove Extra Space</button>
        </div> 
        <div className="container my-3">
             <h2>Your Text Summary</h2>
