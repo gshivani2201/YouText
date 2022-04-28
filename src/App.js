@@ -11,10 +11,10 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const [mode, setMode] = useState('light');     //tells whether dark mode is enabled or not
+  const [mode, setMode] = useState('light');    
   const [alert, setAlert] = useState(null);
 
-  const showAlert = (message, type) => {             //showAlert is a function here diff from setAlert
+  const showAlert = (message, type) => {           
     setAlert({
       msg : message,
       type : type
@@ -46,7 +46,6 @@ function App() {
       setMode('light')
       document.body.style.backgroundColor = 'white';
       showAlert("Light mode has been enabled", "success");
-      // document.title = "YouText - Light Mode";
     }
   }
   return (

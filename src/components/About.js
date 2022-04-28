@@ -2,11 +2,6 @@ import React from 'react'
 
 export default function About(props) {
 
-    // const [myStyle, setMyStyle] = useState({
-    //     color: 'black',
-    //     backgroundColor: 'white',
-    //     border: '1px solid white'
-    // })
     let myStyle = {
         color: props.mode === 'dark'? 'white' : '#212529',
         backgroundColor: props.mode === 'dark' ? '#212529' : 'white'
